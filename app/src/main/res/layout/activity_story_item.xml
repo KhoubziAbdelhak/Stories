@@ -7,9 +7,9 @@
     android:gravity="center"
     tools:context=".story_item">
 
-    <TableRow>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/story_card"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
@@ -23,7 +23,7 @@
                 android:id="@+id/story_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:alpha="0.5"
+                android:alpha="0.4"
                 android:scaleType="fitXY" />
 
 
@@ -51,6 +51,5 @@
                     android:textSize="15sp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-    </TableRow>
 
 </TableLayout>

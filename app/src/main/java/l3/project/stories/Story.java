@@ -4,14 +4,17 @@ public class Story {
     private String title;
     private String description;
     private int image;
+    private Scene[] scenes;
+
 
     public Story() {
     }
 
-    public Story(String title, String description, int image) {
+    public Story(String title, String description, int image, Scene[] scenes) {
         this.title = title;
         this.description = description;
         this.image = image;
+        this.scenes = scenes;
     }
 
     public String getTitle() {
@@ -36,5 +39,13 @@ public class Story {
 
     public void setImage(int image) {
         this.image = image;
+    }
+
+    public Scene[] getScenes() {
+        return scenes;
+    }
+
+    public void setScenes(Scene[] scenes) {
+        this.scenes = scenes;
     }
 }

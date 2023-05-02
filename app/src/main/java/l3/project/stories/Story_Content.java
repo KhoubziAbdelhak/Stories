@@ -1,0 +1,40 @@
+package l3.project.stories;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager2.widget.ViewPager2;
+
+import android.os.Bundle;
+
+public class Story_Content extends AppCompatActivity {
+    private ViewPager2 viewPager2;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_story_content);
+
+        viewPager2 = findViewById(R.id.viewPager2);
+        StoryAdapter testAdapter = new StoryAdapter(this);
+        viewPager2.setAdapter(testAdapter);
+        viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            // This method is triggered when there is any scrolling activity for the current page
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                super.onPageScrolled(position, positionOffset, positionOffsetPixels);
+            }
+
+            // triggered when you select a new page
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+            }
+
+            // triggered when there is
+            // scroll state will be changed
+            @Override
+            public void onPageScrollStateChanged(int state) {
+                super.onPageScrollStateChanged(state);
+            }
+        });
+    }
+}
