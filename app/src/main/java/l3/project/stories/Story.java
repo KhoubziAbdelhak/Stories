@@ -1,6 +1,8 @@
 package l3.project.stories;
 
-public class Story {
+import java.io.Serializable;
+
+public class Story implements Serializable {
     private String title;
     private String description;
     private int image;

@@ -12,12 +12,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder> {
 
-    private int[] images = {R.drawable.storyimage1, R.drawable.storyimage2, R.drawable.storyimage3};
-    String scenes[] = {"some of the text for the first scene", "some of the text for the second", "and this is the final one"};
+    private Story story;
     private Context context;
 
-    public StoryAdapter(Context context) {
+    public StoryAdapter(Context context, Story story) {
         this.context = context;
+        this.story = story;
     }
 
     @NonNull
@@ -29,13 +29,13 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull StoryAdapter.ViewHolder holder, int position) {
-        holder.images.setImageResource(images[position]);
-        holder.texts.setText(scenes[position]);
+        holder.images.setImageResource(story.getScenes()[position].image);
+        holder.texts.setText(story.getScenes()[position].context);
     }
 
     @Override
     public int getItemCount() {
-        return images.length;
+        return story.getScenes().length;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -44,8 +44,8 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder> 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            images = itemView.findViewById(R.id.images);
-            texts = itemView.findViewById(R.id.texts);
+            images = itemView.findViewById(R.id.scene_image);
+            texts = itemView.findViewById(R.id.scene_text);
         }
     }
 }

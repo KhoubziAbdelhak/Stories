@@ -1,6 +1,8 @@
 package l3.project.stories;
 
-public class Scene {
+import java.io.Serializable;
+
+public class Scene implements Serializable {
     String scene_title;
     String context;
     int image;

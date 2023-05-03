@@ -4,24 +4,24 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
-    Story[] stories = {
-            new Story("Story 1", "Description 1", R.drawable.storyimage1, new Scene[]{
-                    new Scene("Scene 1", "this is just a text context of the first story scene", R.drawable.storyimage1),
+    Story[] stories = { new Story("Story 1", "Description 1", R.drawable.storyimage1, new Scene[]{
+                    new Scene("Scene 1", "this is just a text context of the FIRST story scene", R.drawable.storyimage1),
                     new Scene("Scene 1", "this is just a text context of a story scene", R.drawable.storyimage1),
                     new Scene("Scene 1", "this is just a text context of a story scene", R.drawable.storyimage1),
             }),
             new Story("Story 2", "Description 2", R.drawable.storyimage2, new Scene[]{
-                    new Scene("Scene 1", "this is just a text context of the second story scene", R.drawable.storyimage1),
+                    new Scene("Scene 1", "this is just a text context of the SECOND story scene", R.drawable.storyimage2),
                     new Scene("Scene 1", "this is just a text context of a story scene", R.drawable.storyimage1),
                     new Scene("Scene 1", "this is just a text context of a story scene", R.drawable.storyimage1),
             }),
             new Story("Story 3", "Description 3", R.drawable.storyimage3, new Scene[]{
-                    new Scene("Scene 1", "this is just a text context of the third story scene", R.drawable.storyimage1),
+                    new Scene("Scene 1", "this is just a text context of the THIRD story scene", R.drawable.storyimage3),
                     new Scene("Scene 1", "this is just a text context of a story scene", R.drawable.storyimage1),
                     new Scene("Scene 1", "this is just a text context of a story scene", R.drawable.storyimage1),
             }),
@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
                     new Scene("Scene 1", "this is just a text context of a story scene", R.drawable.storyimage1),
             }),
             new Story("Story 5", "Description 5", R.drawable.storyimage2, new Scene[]{
-                    new Scene("Scene 1", "this is just a text context of the fifth story scene", R.drawable.storyimage1),
+                    new Scene("Scene 1", "this is just a text context of the fifth story scene", R.drawable.storyimage2),
                     new Scene("Scene 1", "this is just a text context of a story scene", R.drawable.storyimage1),
                     new Scene("Scene 1", "this is just a text context of a story scene", R.drawable.storyimage1),
             }),
@@ -54,7 +54,9 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                startActivity(new Intent(MainActivity.this, Story_Content.class));
+                Intent intent = new Intent(MainActivity.this, Story_Content.class);
+                intent.putExtra("story_data", stories[position]);
+                startActivity(intent);
             }
         });
 
