@@ -1,4 +1,4 @@
-package l3.project.stories.pages;
+package l3.project.stories;
 
 import android.os.Bundle;
 
@@ -7,8 +7,6 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import l3.project.stories.R;
 
 /**
  * A simple {@link Fragment} subclass.
