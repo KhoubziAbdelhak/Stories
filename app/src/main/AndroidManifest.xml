@@ -13,10 +13,10 @@
         android:theme="@style/Theme.Stories"
         tools:targetApi="31" >
         <activity
-            android:name=".Story_Content"
+            android:name=".storyContent.StoryContent"
             android:exported="false" />
         <activity
-            android:name=".story_item"
+            android:name=".storyItem.StoryItem"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

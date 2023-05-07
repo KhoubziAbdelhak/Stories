@@ -4,10 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
+import l3.project.stories.storyContent.Scene;
+import l3.project.stories.storyContent.Story;
+import l3.project.stories.storyContent.StoryContent;
+import l3.project.stories.storyItem.StoryItemAdapter;
 
 public class MainActivity extends AppCompatActivity {
     Story[] stories = {new Story("Story 1", "Description 1", R.drawable.storyimage1, new Scene[]{
@@ -54,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(MainActivity.this, Story_Content.class);
+                Intent intent = new Intent(MainActivity.this, StoryContent.class);
                 intent.putExtra("story_data", stories[position]);
                 startActivity(intent);
             }

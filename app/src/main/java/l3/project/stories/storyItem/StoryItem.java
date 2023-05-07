@@ -1,13 +1,12 @@
-package l3.project.stories;
+package l3.project.stories.storyItem;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
-public class story_item extends AppCompatActivity {
+import l3.project.stories.R;
+
+public class StoryItem extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,13 +1,13 @@
-package l3.project.stories;
+package l3.project.stories.storyContent;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
-import android.media.Image;
 import android.os.Bundle;
-import android.widget.ImageView;
 
-public class Story_Content extends AppCompatActivity {
+import l3.project.stories.R;
+
+public class StoryContent extends AppCompatActivity {
     private ViewPager2 viewPager2;
 
     private Story story;
