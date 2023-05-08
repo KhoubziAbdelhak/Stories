@@ -21,13 +21,12 @@ import l3.project.stories.R;
 import l3.project.stories.storyContent.Story;
 import l3.project.stories.storyContent.StoryContent;
 
-public class StoryItemAdapter extends BaseAdapter {
-
+public class StoryFavoriteItemAdapter extends BaseAdapter {
     Context context;
     List<Story> stories;
     LayoutInflater inflater;
 
-    public StoryItemAdapter(Context context, List<Story> stories) {
+    public StoryFavoriteItemAdapter(Context context, List<Story> stories) {
         this.context = context;
         this.stories = stories;
         inflater = LayoutInflater.from(context);
@@ -68,14 +67,10 @@ public class StoryItemAdapter extends BaseAdapter {
         });
 
         floatingActionButton.setOnClickListener(view -> {
-            Story story = Data.list_stories.get(position);
-            Data.list_favorite.add(story);
-            view.refreshDrawableState();
+            Data.list_favorite.remove(position);
+
         });
 
         return convertView;
     }
 }
-
-
-

@@ -9,51 +9,51 @@ import l3.project.stories.storyContent.Story;
 
 public class Data {
 
-    Story[] stories = {new Story("Story 1", "Description 1", R.drawable.storyimage1, new Scene[]{
-            new Scene("Scene 1", "This is a scene of the kid story that i should be a little tall so i can test if the thing is working i am just typing to make it a little long, so don\'t mind ma and keep working on your project i guess you are doing great i need to make it a little longer...", R.drawable.storyimage1),
-            new Scene("Scene 1", "this is just a text context of a story scene", R.drawable.storyimage1),
-            new Scene("Scene 1", "this is just a text context of a story scene", R.drawable.storyimage1),
-    }, true),
-            new Story("Story 2", "Description 2", R.drawable.storyimage2, new Scene[]{
-                    new Scene("Scene 1", "this is just a text context of the SECOND story scene", R.drawable.storyimage2),
-                    new Scene("Scene 1", "this is just a text context of a story scene", R.drawable.storyimage1),
-                    new Scene("Scene 1", "this is just a text context of a story scene", R.drawable.storyimage1),
-            }, false),
-            new Story("Story 3", "Description 3", R.drawable.storyimage3, new Scene[]{
-                    new Scene("Scene 1", "this is just a text context of the THIRD story scene", R.drawable.storyimage3),
-                    new Scene("Scene 1", "this is just a text context of a story scene", R.drawable.storyimage1),
-                    new Scene("Scene 1", "this is just a text context of a story scene", R.drawable.storyimage1),
-            }, false),
-            new Story("Story 4", "Description 4", R.drawable.storyimage1, new Scene[]{
-                    new Scene("Scene 1", "this is just a text context of the fourth story scene", R.drawable.storyimage1),
-                    new Scene("Scene 1", "this is just a text context of a story scene", R.drawable.storyimage1),
-                    new Scene("Scene 1", "this is just a text context of a story scene", R.drawable.storyimage1),
-            }, false),
-            new Story("Story 5", "Description 5", R.drawable.storyimage2, new Scene[]{
-                    new Scene("Scene 1", "this is just a text context of the fifth story scene", R.drawable.storyimage2),
-                    new Scene("Scene 1", "this is just a text context of a story scene", R.drawable.storyimage1),
-                    new Scene("Scene 1", "this is just a text context of a story scene", R.drawable.storyimage1),
-            }, true),
-    };
+    public static List<Story> list_stories = new ArrayList<Story>();
+    public static List<Story> list_favorite = new ArrayList<Story>();
 
-    public Data() {
-        Collections.addAll(list_stories, stories);
-    }
-    List<Story> list_stories = new ArrayList<Story>();
+    static {
+        list_stories.add(
+                new Story("Story 1", "Description 1", R.drawable.storyimage1, new Scene[]{
+                        new Scene("Scene 1", "This is a scene of the kid story that i should be a little tall so i can test if the thing is working i am just typing to make it a little long, so don\'t mind ma and keep working on your project i guess you are doing great i need to make it a little longer...", R.drawable.storyimage1),
+                        new Scene("Scene 1", "this is just a text context of a story scene", R.drawable.storyimage1),
+                        new Scene("Scene 1", "this is just a text context of a story scene", R.drawable.storyimage1),
+                })
+        );
 
-    public Story[] getStories() {
-        return stories;
-    }
+        list_stories.add(
+                new Story("Story 2", "Description 2", R.drawable.storyimage2, new Scene[]{
+                        new Scene("Scene 1", "this is just a text context of the SECOND story scene", R.drawable.storyimage2),
+                        new Scene("Scene 1", "this is just a text context of a story scene", R.drawable.storyimage1),
+                        new Scene("Scene 1", "this is just a text context of a story scene", R.drawable.storyimage1),
+                })
+        );
 
-    public void setStories(Story[] stories) {
-        this.stories = stories;
-    }
+        list_stories.add(
+                new Story("Story 3", "Description 3", R.drawable.storyimage3, new Scene[]{
+                        new Scene("Scene 1", "this is just a text context of the THIRD story scene", R.drawable.storyimage3),
+                        new Scene("Scene 1", "this is just a text context of a story scene", R.drawable.storyimage1),
+                        new Scene("Scene 1", "this is just a text context of a story scene", R.drawable.storyimage1),
+                })
+        );
 
-    public List<Story> getList_stories() {
-        return list_stories;
-    }
 
-    public void setList_stories(List<Story> list_stories) {
-        this.list_stories = list_stories;
+        list_stories.add(
+
+                new Story("Story 4", "Description 4", R.drawable.storyimage1, new Scene[]{
+                        new Scene("Scene 1", "this is just a text context of the fourth story scene", R.drawable.storyimage1),
+                        new Scene("Scene 1", "this is just a text context of a story scene", R.drawable.storyimage1),
+                        new Scene("Scene 1", "this is just a text context of a story scene", R.drawable.storyimage1),
+                })
+        );
+        list_stories.add(
+
+                new Story("Story 5", "Description 5", R.drawable.storyimage2, new Scene[]{
+                        new Scene("Scene 1", "this is just a text context of the fifth story scene", R.drawable.storyimage2),
+                        new Scene("Scene 1", "this is just a text context of a story scene", R.drawable.storyimage1),
+                        new Scene("Scene 1", "this is just a text context of a story scene", R.drawable.storyimage1),
+                })
+        );
+
     }
 }

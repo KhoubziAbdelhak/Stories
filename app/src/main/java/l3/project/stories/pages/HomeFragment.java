@@ -16,6 +16,8 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.List;
 
 import l3.project.stories.Data;
@@ -26,19 +28,17 @@ import l3.project.stories.storyItem.StoryItemAdapter;
 
 public class HomeFragment extends Fragment {
 
-    final private Data data = new Data();
-    List<Story> stories = data.getList_stories();
+    List<Story> stories = Data.list_stories;
 
-    ConstraintLayout constraintLayout;
     ListView listView;
-    CardView cardView;
+    FloatingActionButton floatingActionButton;
 
     public HomeFragment() {
         // Required empty public constructor
     }
 
 
-    public static HomeFragment newInstance(String param1, String param2) {
+    public static HomeFragment newInstance() {
         HomeFragment fragment = new HomeFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
@@ -61,7 +61,7 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         listView = view.findViewById(R.id.lv_stories);
-        cardView = view.findViewById(R.id.story_card);
+        floatingActionButton = view.findViewById(R.id.set_favorite);
         StoryItemAdapter storyItemAdapter = new StoryItemAdapter(getContext(), stories);
         listView.setAdapter(storyItemAdapter);
 

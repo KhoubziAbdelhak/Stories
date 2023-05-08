@@ -21,13 +21,12 @@ import l3.project.stories.Data;
 import l3.project.stories.R;
 import l3.project.stories.storyContent.Story;
 import l3.project.stories.storyContent.StoryContent;
+import l3.project.stories.storyItem.StoryFavoriteItemAdapter;
 import l3.project.stories.storyItem.StoryItemAdapter;
 
 public class FavoriteFragment extends Fragment {
 
-    final private Data data = new Data();
-    List<Story> stories = data.getList_stories().stream().filter(Story::isFavorite)
-            .collect(Collectors.toList());
+    List<Story> stories = Data.list_favorite;
 
     ListView listView;
 
@@ -35,7 +34,7 @@ public class FavoriteFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static FavoriteFragment newInstance(String param1, String param2) {
+    public static FavoriteFragment newInstance() {
         FavoriteFragment fragment = new FavoriteFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
@@ -58,8 +57,8 @@ public class FavoriteFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         listView = view.findViewById(R.id.lv_favorite);
-        StoryItemAdapter storyItemAdapter = new StoryItemAdapter(getContext(), stories);
-        listView.setAdapter(storyItemAdapter);
+        StoryFavoriteItemAdapter storyFavoriteItemAdapter = new StoryFavoriteItemAdapter(getContext(), stories);
+        listView.setAdapter(storyFavoriteItemAdapter);
 
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
