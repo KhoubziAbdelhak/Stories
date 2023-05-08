@@ -6,9 +6,11 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
-import android.widget.ListView;
 
 import l3.project.stories.databinding.ActivityMainBinding;
+import l3.project.stories.pages.FavoriteFragment;
+import l3.project.stories.pages.HomeFragment;
+import l3.project.stories.pages.SettingsFragment;
 
 public class MainActivity extends AppCompatActivity {
 

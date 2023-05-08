@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,6 +12,7 @@
         android:id="@+id/story_card"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:clickable="true"
         android:layout_gravity="center"
         android:layout_margin="10dp"
         app:cardCornerRadius="16dp"
@@ -52,7 +53,17 @@
                 android:text="Story Description, it should be a little long but this is a test so it is not that long."
                 android:textColor="#000000"
                 android:textSize="15sp" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/set_favorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/baseline_favorite_24"
+                android:contentDescription="@string/favorite"
+                android:layout_gravity="end"
+                android:layout_margin="20dp"
+                />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-</TableLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
