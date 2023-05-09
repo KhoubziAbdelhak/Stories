@@ -11,6 +11,7 @@ public class Data {
 
     public static List<Story> list_stories = new ArrayList<Story>();
     public static List<Story> list_favorite = new ArrayList<Story>();
+    public static List<Story> list_history = new ArrayList<Story>();
 
     static {
         list_stories.add(

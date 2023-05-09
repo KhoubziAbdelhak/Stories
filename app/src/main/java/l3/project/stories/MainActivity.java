@@ -10,7 +10,7 @@ import android.os.Bundle;
 import l3.project.stories.databinding.ActivityMainBinding;
 import l3.project.stories.pages.FavoriteFragment;
 import l3.project.stories.pages.HomeFragment;
-import l3.project.stories.pages.SettingsFragment;
+import l3.project.stories.pages.HistoryFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,8 +31,8 @@ public class MainActivity extends AppCompatActivity {
                 replaceFragment(new HomeFragment());
             } else if (selected == R.id.btn_favorite) {
                 replaceFragment(new FavoriteFragment());
-            } else if (selected == R.id.btn_settings) {
-                replaceFragment(new SettingsFragment());
+            } else if (selected == R.id.btn_history) {
+                replaceFragment(new HistoryFragment());
             }
 
             return true;

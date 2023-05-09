@@ -13,8 +13,8 @@
         android:icon="@drawable/baseline_favorite_24"
         />
     <item
-        android:id="@+id/btn_settings"
-        android:title="Settings"
-        android:icon="@drawable/baseline_settings_24"
+        android:id="@+id/btn_history"
+        android:title="History"
+        android:icon="@drawable/baseline_history_24"
         />
 </menu>

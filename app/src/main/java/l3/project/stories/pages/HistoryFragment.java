@@ -19,20 +19,18 @@ import l3.project.stories.R;
 import l3.project.stories.storyContent.Story;
 import l3.project.stories.storyItem.StoryItemAdapter;
 
-public class HomeFragment extends Fragment {
+public class HistoryFragment extends Fragment {
 
-    List<Story> stories = Data.list_stories;
+    List<Story> stories = Data.list_history;
 
-    // ListView listView;
     RecyclerView recyclerView;
 
-    public HomeFragment() {
+    public HistoryFragment() {
         // Required empty public constructor
     }
 
-
-    public static HomeFragment newInstance() {
-        HomeFragment fragment = new HomeFragment();
+    public static HistoryFragment newInstance(String param1, String param2) {
+        HistoryFragment fragment = new HistoryFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -47,18 +45,18 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        return inflater.inflate(R.layout.fragment_history, container, false);
+
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        recyclerView = view.findViewById(R.id.rv_stories);
+        recyclerView = view.findViewById(R.id.rv_history);
         StoryItemAdapter storyItemAdapter = new StoryItemAdapter(stories);
         recyclerView.setAdapter(storyItemAdapter);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
 
     }
 }

@@ -7,8 +7,9 @@
     android:background="@drawable/main_background"
     tools:context=".pages.HomeFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/test_layout"
+    <LinearLayout
+        android:id="@+id/story_item"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -16,29 +17,24 @@
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="16dp"
             android:text="@string/app_name"
             android:textColor="@color/white"
             android:textSize="50sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.03"
             />
 
-        <ListView
-            android:id="@+id/lv_stories"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_stories"
             android:clickable="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:divider="@null"
-            app:layout_constraintTop_toBottomOf="@+id/tv_title"
             />
 
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 </FrameLayout>

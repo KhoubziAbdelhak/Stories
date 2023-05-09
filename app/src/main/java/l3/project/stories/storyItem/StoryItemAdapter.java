@@ -1,16 +1,16 @@
 package l3.project.stories.storyItem;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -21,61 +21,83 @@ import l3.project.stories.R;
 import l3.project.stories.storyContent.Story;
 import l3.project.stories.storyContent.StoryContent;
 
-public class StoryItemAdapter extends BaseAdapter {
+public class StoryItemAdapter extends RecyclerView.Adapter<StoryItemAdapter.ViewHolder> {
 
-    Context context;
-    List<Story> stories;
-    LayoutInflater inflater;
+    private final List<Story> stories;
 
-    public StoryItemAdapter(Context context, List<Story> stories) {
-        this.context = context;
+    public StoryItemAdapter(List<Story> stories) {
         this.stories = stories;
-        inflater = LayoutInflater.from(context);
+    }
+
+    // Constructor and member variables
+    @NonNull
+    @Override
+    public StoryItemAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        Context context = parent.getContext();
+        LayoutInflater inflater = LayoutInflater.from(context);
+
+        // Inflate the custom layout
+        View storyView = inflater.inflate(R.layout.activity_story_item, parent, false);
+
+        // return new holder instance
+        ViewHolder viewHolder = new ViewHolder(storyView);
+        return viewHolder;
     }
 
     @Override
-    public int getCount() {
+    public void onBindViewHolder(@NonNull StoryItemAdapter.ViewHolder holder, int position) {
+        // Get the data model base on the position
+        Story story = stories.get(position);
+
+        // Set item views based on your views and data model
+        ImageView storyImage = holder.storyImage;
+        storyImage.setImageResource(story.getImage());
+        TextView storyTitle = holder.storyTitle;
+        storyTitle.setText(story.getTitle());
+        TextView storyDescription = holder.storyDescription;
+        storyDescription.setText(story.getDescription());
+    }
+
+    @Override
+    public int getItemCount() {
         return stories.size();
     }
 
-    @Override
-    public Object getItem(int position) {
-        return stories.get(position);
-    }
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
-    @Override
-    public long getItemId(int position) {
-        return 0;
-    }
+        public ImageView storyImage;
+        public TextView storyTitle;
+        public TextView storyDescription;
+        public CardView storyCard;
+        public FloatingActionButton favorite_button;
 
-    @SuppressLint({"ViewHolder", "InflateParams"})
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        convertView = inflater.inflate(R.layout.activity_story_item, null);
-        CardView cardView = (CardView) convertView.findViewById(R.id.story_card);
-        FloatingActionButton floatingActionButton = (FloatingActionButton) convertView.findViewById(R.id.set_favorite);
-        ImageView imageView = (ImageView) convertView.findViewById(R.id.story_image);
-        TextView title = (TextView) convertView.findViewById(R.id.story_title);
-        TextView description = (TextView) convertView.findViewById(R.id.story_description);
-        imageView.setImageResource(stories.get(position).getImage());
-        title.setText(stories.get(position).getTitle());
-        description.setText(stories.get(position).getDescription());
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            storyImage = (ImageView) itemView.findViewById(R.id.story_image);
+            storyTitle = (TextView) itemView.findViewById(R.id.story_title);
+            storyDescription = (TextView) itemView.findViewById(R.id.story_description);
+            storyCard = (CardView) itemView.findViewById(R.id.story_card);
+            favorite_button = (FloatingActionButton) itemView.findViewById(R.id.set_favorite);
 
-        cardView.setOnClickListener(view -> {
-            Intent intent = new Intent(context, StoryContent.class);
-            intent.putExtra("story_data", stories.get(position));
-            context.startActivity(intent);
-        });
+            storyCard.setOnClickListener(view -> {
+                Story story = stories.get(getAdapterPosition());
+                if (!Data.list_history.contains(story))
+                    Data.list_history.add(story);
 
-        floatingActionButton.setOnClickListener(view -> {
-            Story story = Data.list_stories.get(position);
-            Data.list_favorite.add(story);
-            view.refreshDrawableState();
-        });
+                Intent intent = new Intent(itemView.getContext(), StoryContent.class);
+                intent.putExtra("story_data", stories.get(getAdapterPosition()));
+                itemView.getContext().startActivity(intent);
+            });
 
-        return convertView;
+            favorite_button.setOnClickListener(view -> {
+                Story story = stories.get(getAdapterPosition());
+                if (Data.list_favorite.contains(story))
+                    Data.list_favorite.remove(story);
+                else
+                    Data.list_favorite.add(story);
+
+            });
+        }
     }
 }
-
-
 
