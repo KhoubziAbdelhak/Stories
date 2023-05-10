@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Lifecycle;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,6 +19,7 @@ import l3.project.stories.Data;
 import l3.project.stories.R;
 import l3.project.stories.storyContent.Story;
 import l3.project.stories.storyItem.StoryItemAdapter;
+
 
 public class FavoriteFragment extends Fragment {
 
@@ -54,20 +56,14 @@ public class FavoriteFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         recyclerView = view.findViewById(R.id.rv_favorite);
         StoryItemAdapter storyItemAdapter = new StoryItemAdapter(stories);
+        storyItemAdapter.setValueChangeListener(stories -> {
+            storyItemAdapter.onValueChange(stories);
+            recyclerView.setAdapter(storyItemAdapter);
+            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        });
         recyclerView.setAdapter(storyItemAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-
-        /*
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getContext(), StoryContent.class);
-                intent.putExtra("story_data", stories.get(position));
-                startActivity(intent);
-            }
-        });
-
-         */
     }
+
 }

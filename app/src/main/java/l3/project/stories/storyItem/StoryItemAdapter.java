@@ -1,10 +1,15 @@
 package l3.project.stories.storyItem;
 
+import static androidx.viewpager.widget.PagerAdapter.POSITION_NONE;
+
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,16 +23,27 @@ import java.util.List;
 
 import l3.project.stories.Data;
 import l3.project.stories.R;
+import l3.project.stories.pages.HomeFragment;
 import l3.project.stories.storyContent.Story;
 import l3.project.stories.storyContent.StoryContent;
 
 public class StoryItemAdapter extends RecyclerView.Adapter<StoryItemAdapter.ViewHolder> {
 
-    private final List<Story> stories;
+    private List<Story> stories;
 
     public StoryItemAdapter(List<Story> stories) {
         this.stories = stories;
     }
+
+    public void onValueChange(List<Story> stories) {
+        this.stories = stories;
+    }
+
+    public interface ValueChangeListener {
+        void onValueChange(List<Story> stories);
+    }
+
+    private ValueChangeListener valueChangeListener;
 
     // Constructor and member variables
     @NonNull
@@ -56,6 +72,11 @@ public class StoryItemAdapter extends RecyclerView.Adapter<StoryItemAdapter.View
         storyTitle.setText(story.getTitle());
         TextView storyDescription = holder.storyDescription;
         storyDescription.setText(story.getDescription());
+
+        if (Data.list_favorite.contains(stories.get(holder.getAdapterPosition())))
+            holder.favorite_button.setImageResource(R.drawable.icon_favorite);
+        else
+            holder.favorite_button.setImageResource(R.drawable.icon_not_favorite);
     }
 
     @Override
@@ -69,7 +90,7 @@ public class StoryItemAdapter extends RecyclerView.Adapter<StoryItemAdapter.View
         public TextView storyTitle;
         public TextView storyDescription;
         public CardView storyCard;
-        public FloatingActionButton favorite_button;
+        public ImageButton favorite_button;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -77,7 +98,10 @@ public class StoryItemAdapter extends RecyclerView.Adapter<StoryItemAdapter.View
             storyTitle = (TextView) itemView.findViewById(R.id.story_title);
             storyDescription = (TextView) itemView.findViewById(R.id.story_description);
             storyCard = (CardView) itemView.findViewById(R.id.story_card);
-            favorite_button = (FloatingActionButton) itemView.findViewById(R.id.set_favorite);
+            favorite_button = (ImageButton) itemView.findViewById(R.id.set_favorite);
+
+
+
 
             storyCard.setOnClickListener(view -> {
                 Story story = stories.get(getAdapterPosition());
@@ -91,13 +115,23 @@ public class StoryItemAdapter extends RecyclerView.Adapter<StoryItemAdapter.View
 
             favorite_button.setOnClickListener(view -> {
                 Story story = stories.get(getAdapterPosition());
-                if (Data.list_favorite.contains(story))
+                if (Data.list_favorite.contains(story)) {
                     Data.list_favorite.remove(story);
-                else
+                    favorite_button.setImageResource(R.drawable.icon_not_favorite);
+                } else {
                     Data.list_favorite.add(story);
-
+                    favorite_button.setImageResource(R.drawable.icon_favorite);
+                }
+                if (Data.list_favorite.equals(stories))
+                    valueChangeListener.onValueChange(stories);
             });
         }
+
+    }
+
+
+    public void setValueChangeListener(ValueChangeListener valueChangeListener) {
+        this.valueChangeListener = valueChangeListener;
     }
 }
 

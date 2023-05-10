@@ -12,9 +12,9 @@
         android:id="@+id/story_card"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clickable="true"
         android:layout_gravity="center"
         android:layout_margin="10dp"
+        android:clickable="true"
         app:cardCornerRadius="16dp"
         app:cardElevation="8dp"
         app:cardUseCompatPadding="true">
@@ -54,15 +54,17 @@
                 android:textColor="#000000"
                 android:textSize="15sp" />
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
+
+            <ImageButton
                 android:id="@+id/set_favorite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/baseline_favorite_24"
-                android:contentDescription="@string/favorite"
                 android:layout_gravity="end"
                 android:layout_margin="20dp"
-                />
+                android:background="@null"
+                android:contentDescription="@string/favorite"
+                android:src="@drawable/icon_favorite" />
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

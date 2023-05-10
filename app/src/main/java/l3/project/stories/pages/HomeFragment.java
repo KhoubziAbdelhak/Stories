@@ -55,8 +55,14 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         recyclerView = view.findViewById(R.id.rv_stories);
         StoryItemAdapter storyItemAdapter = new StoryItemAdapter(stories);
-        recyclerView.setAdapter(storyItemAdapter);
 
+        storyItemAdapter.setValueChangeListener(stories -> {
+            storyItemAdapter.onValueChange(stories);
+            recyclerView.setAdapter(storyItemAdapter);
+            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        });
+
+        recyclerView.setAdapter(storyItemAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
 
