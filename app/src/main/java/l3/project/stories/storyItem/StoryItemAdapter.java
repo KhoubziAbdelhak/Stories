@@ -5,6 +5,9 @@ import static androidx.viewpager.widget.PagerAdapter.POSITION_NONE;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.RenderEffect;
+import android.graphics.Shader;
+import android.os.Build;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -61,17 +64,21 @@ public class StoryItemAdapter extends RecyclerView.Adapter<StoryItemAdapter.View
     }
 
     @Override
-    public void onBindViewHolder(@NonNull StoryItemAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         // Get the data model base on the position
         Story story = stories.get(position);
 
         // Set item views based on your views and data model
         ImageView storyImage = holder.storyImage;
         storyImage.setImageResource(story.getImage());
+        // /*
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            storyImage.setRenderEffect(RenderEffect.createBlurEffect(3, 3, Shader.TileMode.MIRROR));
+        };
+        // */
+
         TextView storyTitle = holder.storyTitle;
         storyTitle.setText(story.getTitle());
-        TextView storyDescription = holder.storyDescription;
-        storyDescription.setText(story.getDescription());
 
         if (Data.list_favorite.contains(stories.get(holder.getAdapterPosition())))
             holder.favorite_button.setImageResource(R.drawable.icon_favorite);
@@ -88,7 +95,6 @@ public class StoryItemAdapter extends RecyclerView.Adapter<StoryItemAdapter.View
 
         public ImageView storyImage;
         public TextView storyTitle;
-        public TextView storyDescription;
         public CardView storyCard;
         public ImageButton favorite_button;
 
@@ -96,7 +102,6 @@ public class StoryItemAdapter extends RecyclerView.Adapter<StoryItemAdapter.View
             super(itemView);
             storyImage = (ImageView) itemView.findViewById(R.id.story_image);
             storyTitle = (TextView) itemView.findViewById(R.id.story_title);
-            storyDescription = (TextView) itemView.findViewById(R.id.story_description);
             storyCard = (CardView) itemView.findViewById(R.id.story_card);
             favorite_button = (ImageButton) itemView.findViewById(R.id.set_favorite);
 

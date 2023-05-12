@@ -1,28 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@drawable/main_background"
     tools:context=".pages.HistoryFragment">
 
-
-    <LinearLayout
-        android:id="@+id/story_history_item"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
 
     <TextView
         android:id="@+id/tv_history"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_margin="16dp"
-        android:text="History"
+        android:layout_margin="@dimen/fragment_title_margin"
+        android:text="@string/history_fragment"
         android:textColor="@color/white"
-        android:textSize="50sp"
+        android:textSize="@dimen/fragment_title"
         android:textStyle="bold" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -31,5 +25,4 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:divider="@null" />
-    </LinearLayout>
-</FrameLayout>
+</LinearLayout>

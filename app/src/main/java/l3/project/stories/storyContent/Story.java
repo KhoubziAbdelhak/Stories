@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 public class Story implements Serializable {
     private String title;
-    private String description;
     private int image;
     private Scene[] scenes;
 
@@ -12,9 +11,8 @@ public class Story implements Serializable {
     public Story() {
     }
 
-    public Story(String title, String description, int image, Scene[] scenes) {
+    public Story(String title, int image, Scene[] scenes) {
         this.title = title;
-        this.description = description;
         this.image = image;
         this.scenes = scenes;
     }
@@ -27,13 +25,6 @@ public class Story implements Serializable {
         this.title = title;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     public int getImage() {
         return image;

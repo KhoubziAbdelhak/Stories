@@ -3,18 +3,18 @@
 
     <item
         android:id="@+id/btn_home"
-        android:title="Home"
-        android:icon="@drawable/icon_home"
+        android:title="@string/stories_fragment"
+        android:icon="@drawable/icon_stories"
 
         />
     <item
         android:id="@+id/btn_favorite"
-        android:title="Favorite"
+        android:title="@string/favorite_fragment"
         android:icon="@drawable/icon_favorite"
         />
     <item
         android:id="@+id/btn_history"
-        android:title="History"
+        android:title="@string/history_fragment"
         android:icon="@drawable/icon_history"
         />
 </menu>

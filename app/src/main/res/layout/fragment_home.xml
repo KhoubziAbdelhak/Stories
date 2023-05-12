@@ -1,40 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/main_background"
+    android:orientation="vertical"
     tools:context=".pages.HomeFragment">
 
-    <LinearLayout
-        android:id="@+id/story_item"
-        android:orientation="vertical"
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/fragment_title_margin"
+        android:text="@string/stories_fragment"
+        android:textColor="@color/white"
+        android:textSize="@dimen/fragment_title"
+        android:textStyle="bold" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_stories"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="16dp"
-            android:text="@string/app_name"
-            android:textColor="@color/white"
-            android:textSize="50sp"
-            android:textStyle="bold"
-            />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_stories"
-            android:clickable="true"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:divider="@null"
-            />
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:divider="@null" />
 
 
-
-    </LinearLayout>
-
-</FrameLayout>
+</LinearLayout>
