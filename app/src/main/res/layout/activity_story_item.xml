@@ -36,7 +36,7 @@
             <View
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:alpha="0.4"
+                android:alpha="0.3"
                 android:background="@color/black" />
 
         </FrameLayout>
@@ -72,7 +72,9 @@
                 android:layout_margin="13dp"
                 android:background="@null"
                 android:contentDescription="@string/favorite_fragment"
-                android:src="@drawable/icon_favorite" />
+                android:src="@drawable/icon_favorite"
+                />
+
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

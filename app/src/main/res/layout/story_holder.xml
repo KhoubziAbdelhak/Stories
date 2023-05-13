@@ -1,31 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    android:background="@drawable/main_background"
+    android:padding="10dp">
+
 
     <ImageView
         android:id="@+id/scene_image"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_bias="0"
-        android:scaleType="fitXY"
-        />
-        <TextView
-            android:id="@+id/scene_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/scene_image"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintVertical_bias="0.5"
-            />
+        android:layout_gravity="top"
+        android:adjustViewBounds="true"
+        android:src="@drawable/the_wolf_and_the_lamp_scene_4" />
+
+    <TextView
+        android:id="@+id/scene_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/scene_image"
+        android:layout_alignParentBottom="true"
+        android:fontFamily="@font/cipote"
+        android:gravity="center"
+        android:text="— Sire, replies the Lamb, may your Majesty
+Don't get angry;
+But rather than she considers
+That I go quenching my thirst
+In the current,
+More than twenty paces below Her,
+And that therefore, in no way,
+I can not disturb her drink."
+        android:textSize="22dp" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
