@@ -53,10 +53,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_margin="10dp"
+                android:layout_margin="13dp"
                 android:shadowColor="@color/white"
                 android:shadowRadius="10"
                 android:text="Story Title"
+                android:fontFamily="@font/story_name_font"
                 android:textColor="#000000"
                 android:textSize="30sp"
                 android:textStyle="bold" />
@@ -68,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
                 android:layout_gravity="end"
-                android:layout_margin="20dp"
+                android:layout_margin="13dp"
                 android:background="@null"
                 android:contentDescription="@string/favorite_fragment"
                 android:src="@drawable/icon_favorite" />

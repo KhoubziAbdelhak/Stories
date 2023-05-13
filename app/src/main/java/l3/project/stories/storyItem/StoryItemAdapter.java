@@ -106,8 +106,6 @@ public class StoryItemAdapter extends RecyclerView.Adapter<StoryItemAdapter.View
             favorite_button = (ImageButton) itemView.findViewById(R.id.set_favorite);
 
 
-
-
             storyCard.setOnClickListener(view -> {
                 Story story = stories.get(getAdapterPosition());
                 if (!Data.list_history.contains(story))
