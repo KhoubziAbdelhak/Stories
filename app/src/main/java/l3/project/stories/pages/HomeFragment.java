@@ -1,5 +1,6 @@
 package l3.project.stories.pages;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,9 +13,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.gson.Gson;
+
 import java.util.List;
 
 import l3.project.stories.Data;
+import l3.project.stories.MainActivity;
 import l3.project.stories.R;
 import l3.project.stories.storyContent.Story;
 import l3.project.stories.storyItem.StoryItemAdapter;
@@ -56,15 +60,16 @@ public class HomeFragment extends Fragment {
         recyclerView = view.findViewById(R.id.rv_stories);
         StoryItemAdapter storyItemAdapter = new StoryItemAdapter(stories);
 
-        storyItemAdapter.setValueChangeListener(stories -> {
-            storyItemAdapter.onValueChange(stories);
-            recyclerView.setAdapter(storyItemAdapter);
-            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        });
+        storyItemAdapter.setValueChangeListener(
+                stories -> {
+                    storyItemAdapter.onValueChange(stories);
+                    recyclerView.setAdapter(storyItemAdapter);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                });
 
         recyclerView.setAdapter(storyItemAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-
     }
+
 }

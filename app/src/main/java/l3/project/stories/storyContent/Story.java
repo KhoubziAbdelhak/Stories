@@ -3,18 +3,29 @@ package l3.project.stories.storyContent;
 import java.io.Serializable;
 
 public class Story implements Serializable {
+    private int id;
     private String title;
     private int image;
     private Scene[] scenes;
+    private boolean isFavorite = false;
+    private boolean isHistory = false;
 
 
-    public Story() {
-    }
-
-    public Story(String title, int image, Scene[] scenes) {
+    public Story(int id, String title, int image, Scene[] scenes, boolean isFavorite, boolean isHistory) {
+        this.id = id;
         this.title = title;
         this.image = image;
         this.scenes = scenes;
+        this.isFavorite = isFavorite;
+        this.isHistory = isHistory;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -42,4 +53,19 @@ public class Story implements Serializable {
         this.scenes = scenes;
     }
 
+    public boolean isFavorite() {
+        return isFavorite;
+    }
+
+    public boolean isHistory() {
+        return isHistory;
+    }
+
+    public void setHistory(boolean history) {
+        isHistory = history;
+    }
+
+    public void setFavorite(boolean favorite) {
+        isFavorite = favorite;
+    }
 }

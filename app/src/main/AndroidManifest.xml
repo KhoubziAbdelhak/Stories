@@ -16,9 +16,6 @@
             android:name=".storyContent.StoryContent"
             android:exported="false" />
         <activity
-            android:name=".storyItem.StoryItem"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="true" >
             <intent-filter>

@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import l3.project.stories.Data;
 import l3.project.stories.R;
@@ -21,7 +22,8 @@ import l3.project.stories.storyItem.StoryItemAdapter;
 
 public class HistoryFragment extends Fragment {
 
-    List<Story> stories = Data.list_history;
+    List<Story> stories = Data.list_stories.stream().filter(Story::isHistory)
+            .collect(Collectors.toList());
 
     RecyclerView recyclerView;
 
