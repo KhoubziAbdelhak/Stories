@@ -36,9 +36,20 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder> 
     public void onBindViewHolder(@NonNull StoryAdapter.ViewHolder holder, int position) {
         holder.scene_image.setImageResource(story.getScenes()[position].image);
         holder.scene_text.setText(story.getScenes()[position].context);
-        holder.play.setOnClickListener(StoryAdapter.this::play);
-        holder.pause.setOnClickListener(StoryAdapter.this::pause);
-        holder.stop.setOnClickListener(StoryAdapter.this::stop);
+
+        if (!story.hasVoice()) {
+            holder.play.setVisibility(View.GONE);
+            holder.pause.setVisibility(View.GONE);
+            holder.stop.setVisibility(View.GONE);
+        } else {
+            holder.play.setVisibility(View.VISIBLE);
+            holder.pause.setVisibility(View.VISIBLE);
+            holder.stop.setVisibility(View.VISIBLE);
+            holder.play.setOnClickListener(v -> play(position));
+            holder.pause.setOnClickListener(v -> pause());
+            holder.stop.setOnClickListener(v -> stop());
+        }
+
     }
 
     @Override
@@ -61,20 +72,20 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder> 
         }
     }
 
-    public void play(View v) {
+    public void play(int position) {
         if (player == null) {
-            player = MediaPlayer.create(context, R.raw.the_wolf_and_the_lamp_1);
+            player = MediaPlayer.create(context, story.getScenes()[position].voice);
             player.setOnCompletionListener(mp -> stopPlayer());
         }
         player.start();
     }
 
-    public void pause(View v) {
+    public void pause() {
         if (player != null)
             player.pause();
     }
 
-    public void stop(View v) {
+    public void stop() {
         stopPlayer();
     }
 

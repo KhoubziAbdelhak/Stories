@@ -6,6 +6,7 @@ public class Scene implements Serializable {
     String scene_title;
     String context;
     int image;
+    int voice;
 
     public Scene() {
     }
@@ -14,6 +15,13 @@ public class Scene implements Serializable {
         this.scene_title = scene_title;
         this.context = context;
         this.image = image;
+    }
+
+    public Scene(String scene_title, String context, int image, int voice) {
+        this.scene_title = scene_title;
+        this.context = context;
+        this.image = image;
+        this.voice = voice;
     }
 
     public String getScene_title() {
@@ -38,5 +46,13 @@ public class Scene implements Serializable {
 
     public void setImage(int image) {
         this.image = image;
+    }
+
+    public int getVoice() {
+        return voice;
+    }
+
+    public void setVoice(int voice) {
+        this.voice = voice;
     }
 }

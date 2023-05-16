@@ -7,15 +7,17 @@ public class Story implements Serializable {
     private String title;
     private int image;
     private Scene[] scenes;
+    private boolean hasVoice = false;
     private boolean isFavorite = false;
     private boolean isHistory = false;
 
 
-    public Story(int id, String title, int image, Scene[] scenes, boolean isFavorite, boolean isHistory) {
+    public Story(int id, String title, int image, Scene[] scenes, boolean hasVoice, boolean isFavorite, boolean isHistory) {
         this.id = id;
         this.title = title;
         this.image = image;
         this.scenes = scenes;
+        this.hasVoice = hasVoice;
         this.isFavorite = isFavorite;
         this.isHistory = isHistory;
     }
@@ -47,6 +49,14 @@ public class Story implements Serializable {
 
     public Scene[] getScenes() {
         return scenes;
+    }
+
+    public boolean hasVoice() {
+        return hasVoice;
+    }
+
+    public void setHasVoice(boolean hasVoice) {
+        this.hasVoice = hasVoice;
     }
 
     public void setScenes(Scene[] scenes) {
