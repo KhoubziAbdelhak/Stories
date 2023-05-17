@@ -60,7 +60,7 @@ public class FavoriteFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         recyclerView = view.findViewById(R.id.rv_favorite);
-        StoryItemAdapter storyItemAdapter = new StoryItemAdapter(stories);
+        StoryItemAdapter storyItemAdapter = new StoryItemAdapter(stories, this);
         storyItemAdapter.setValueChangeListener(stories -> {
             storyItemAdapter.onValueChange(stories);
             recyclerView.setAdapter(storyItemAdapter);

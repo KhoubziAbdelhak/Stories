@@ -1,5 +1,6 @@
 package l3.project.stories.storyItem;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -17,6 +18,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
@@ -34,9 +37,11 @@ import l3.project.stories.storyContent.StoryContent;
 public class StoryItemAdapter extends RecyclerView.Adapter<StoryItemAdapter.ViewHolder> {
 
     private List<Story> stories;
+    private final Fragment fragment;
 
-    public StoryItemAdapter(List<Story> stories) {
+    public StoryItemAdapter(List<Story> stories, Fragment fragment) {
         this.stories = stories;
+        this.fragment = fragment;
     }
 
     public void onValueChange(List<Story> stories) {
@@ -55,7 +60,6 @@ public class StoryItemAdapter extends RecyclerView.Adapter<StoryItemAdapter.View
     public StoryItemAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
-
 
         // Inflate the custom layout
         View storyView = inflater.inflate(R.layout.activity_story_item, parent, false);
@@ -141,9 +145,13 @@ public class StoryItemAdapter extends RecyclerView.Adapter<StoryItemAdapter.View
                     Data.list_stories.stream().filter(s -> s.getId() == story.getId()).findFirst()
                             .ifPresent(s -> s.setFavorite(true));
                     favorite_button.setImageResource(R.drawable.icon_favorite);
+                }
+
+                if (fragment.getClass().getSimpleName().equals("FavoriteFragment")) {
                     valueChangeListener.onValueChange(Data.list_stories.stream().filter(Story::isFavorite)
                             .collect(Collectors.toList()));
                 }
+
 
                 SharedPreferences sharedPreferences = itemView.getContext().getSharedPreferences("", itemView.getContext().MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
