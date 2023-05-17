@@ -137,12 +137,12 @@ public class StoryItemAdapter extends RecyclerView.Adapter<StoryItemAdapter.View
                     Data.list_stories.stream().filter(s -> s.getId() == story.getId()).findFirst()
                             .ifPresent(s -> s.setFavorite(false));
                     favorite_button.setImageResource(R.drawable.icon_not_favorite);
-                    valueChangeListener.onValueChange(Data.list_stories.stream().filter(Story::isFavorite)
-                            .collect(Collectors.toList()));
                 } else {
                     Data.list_stories.stream().filter(s -> s.getId() == story.getId()).findFirst()
                             .ifPresent(s -> s.setFavorite(true));
                     favorite_button.setImageResource(R.drawable.icon_favorite);
+                    valueChangeListener.onValueChange(Data.list_stories.stream().filter(Story::isFavorite)
+                            .collect(Collectors.toList()));
                 }
 
                 SharedPreferences sharedPreferences = itemView.getContext().getSharedPreferences("", itemView.getContext().MODE_PRIVATE);
