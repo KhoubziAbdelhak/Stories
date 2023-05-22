@@ -14,8 +14,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_margin="@dimen/fragment_title_margin"
-        android:text="@string/stories_fragment"
         android:fontFamily="@font/title_font"
+        android:text="@string/stories_fragment"
         android:textColor="@color/white"
         android:textSize="@dimen/fragment_title"
         android:textStyle="bold" />
@@ -24,8 +24,7 @@
         android:id="@+id/rv_stories"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clickable="true"
-        android:divider="@null" />
+        android:clickable="true" />
 
 
 </LinearLayout>

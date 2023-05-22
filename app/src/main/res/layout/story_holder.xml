@@ -35,6 +35,7 @@ I can not disturb her drink."
 
 
     <LinearLayout
+        android:id="@+id/scene_buttons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/scene_text"

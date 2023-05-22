@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -38,13 +39,9 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder> 
         holder.scene_text.setText(story.getScenes()[position].context);
 
         if (!story.hasVoice()) {
-            holder.play.setVisibility(View.GONE);
-            holder.pause.setVisibility(View.GONE);
-            holder.stop.setVisibility(View.GONE);
+            holder.scene_buttons.setVisibility(View.GONE);
         } else {
-            holder.play.setVisibility(View.VISIBLE);
-            holder.pause.setVisibility(View.VISIBLE);
-            holder.stop.setVisibility(View.VISIBLE);
+            holder.scene_buttons.setVisibility(View.VISIBLE);
             holder.play.setOnClickListener(v -> play(position));
             holder.pause.setOnClickListener(v -> pause());
             holder.stop.setOnClickListener(v -> stop());
@@ -60,12 +57,14 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder> 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView scene_image;
         TextView scene_text;
+        LinearLayout scene_buttons;
         ImageButton play, pause, stop;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             scene_image = itemView.findViewById(R.id.scene_image);
             scene_text = itemView.findViewById(R.id.scene_text);
+            scene_buttons = itemView.findViewById(R.id.scene_buttons);
             play = itemView.findViewById(R.id.play);
             pause = itemView.findViewById(R.id.pause);
             stop = itemView.findViewById(R.id.stop);
@@ -101,4 +100,5 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder> 
         super.onViewDetachedFromWindow(holder);
         stopPlayer();
     }
+
 }

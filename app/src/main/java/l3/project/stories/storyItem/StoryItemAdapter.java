@@ -1,14 +1,8 @@
 package l3.project.stories.storyItem;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.RenderEffect;
-import android.graphics.Shader;
-import android.os.Build;
-import android.os.health.ServiceHealthStats;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,13 +13,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -71,17 +62,10 @@ public class StoryItemAdapter extends RecyclerView.Adapter<StoryItemAdapter.View
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        // Get the data model base on the position
         Story story = stories.get(position);
 
-        // Set item views based on your views and data model
         ImageView storyImage = holder.storyImage;
         storyImage.setImageResource(story.getImage());
-        // /*
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            storyImage.setRenderEffect(RenderEffect.createBlurEffect(10, 10, Shader.TileMode.MIRROR));
-        }
-        // */
 
         TextView storyTitle = holder.storyTitle;
         storyTitle.setText(story.getTitle());
@@ -118,17 +102,19 @@ public class StoryItemAdapter extends RecyclerView.Adapter<StoryItemAdapter.View
 
             storyCard.setOnClickListener(view -> {
                 Story story = stories.get(getAdapterPosition());
-                if (!Data.list_stories.stream().filter(s -> s.getId() == story.getId()).findFirst().get().isHistory()) {
-                    Data.list_stories.stream().filter(s -> s.getId() == story.getId()).findFirst()
-                            .ifPresent(s -> s.setHistory(true));
-                    SharedPreferences sharedPreferences = itemView.getContext().getSharedPreferences("", itemView.getContext().MODE_PRIVATE);
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    Gson gson = new Gson();
-                    String json = gson.toJson(Data.list_stories);
-                    editor.putString("stories_list", json);
-                    editor.apply();
-                }
-
+                Data.list_stories.stream().filter(s -> s.getId() == story.getId()).findFirst().ifPresent(
+                        s -> {
+                            if (!s.isHistory()) {
+                                s.setHistory(true);
+                                SharedPreferences sharedPreferences = itemView.getContext().getSharedPreferences("", Context.MODE_PRIVATE);
+                                SharedPreferences.Editor editor = sharedPreferences.edit();
+                                Gson gson = new Gson();
+                                String json = gson.toJson(Data.list_stories);
+                                editor.putString("stories_list", json);
+                                editor.apply();
+                            }
+                        }
+                );
                 Intent intent = new Intent(itemView.getContext(), StoryContent.class);
                 intent.putExtra("story_data", stories.get(getAdapterPosition()));
                 itemView.getContext().startActivity(intent);
@@ -153,7 +139,7 @@ public class StoryItemAdapter extends RecyclerView.Adapter<StoryItemAdapter.View
                 }
 
 
-                SharedPreferences sharedPreferences = itemView.getContext().getSharedPreferences("", itemView.getContext().MODE_PRIVATE);
+                SharedPreferences sharedPreferences = itemView.getContext().getSharedPreferences("", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 Gson gson = new Gson();
                 String json = gson.toJson(Data.list_stories);

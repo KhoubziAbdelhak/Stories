@@ -1,17 +1,15 @@
 package l3.project.stories;
 
-import android.content.SharedPreferences;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import l3.project.stories.storyContent.Scene;
 import l3.project.stories.storyContent.Story;
 
 public class Data {
 
-    public static List<Story> list_stories = new ArrayList<Story>();
+    public static List<Story> list_stories = new ArrayList<>();
 
 
     static {
@@ -69,7 +67,7 @@ public class Data {
                                 R.drawable.the_wolf_and_the_lamp_scene_6,
                                 R.raw.the_wolf_and_the_lamp_voice_6
                         ),
-                },true ,false, false)
+                }, true, false, false)
         );
 
         list_stories.add(
@@ -101,7 +99,7 @@ public class Data {
                                 I turn around and see in the ice in the entrance, that my back is covered with fish. Olalalala! It's the watered sprinkler!""",
                                 R.drawable.april_fool_day_scene_5
                         ),
-                },false ,false, false)
+                }, false, false, false)
         );
 
         list_stories.add(
@@ -109,7 +107,7 @@ public class Data {
                         new Scene("Scene 1", "this is just a text context of the THIRD story scene", R.drawable.storyimage3),
                         new Scene("Scene 1", "this is just a text context of a story scene", R.drawable.storyimage1),
                         new Scene("Scene 1", "this is just a text context of a story scene", R.drawable.storyimage1),
-                },false, false, false)
+                }, false, false, false)
         );
 
 
@@ -119,7 +117,7 @@ public class Data {
                         new Scene("Scene 1", "this is just a text context of the fourth story scene", R.drawable.storyimage1),
                         new Scene("Scene 1", "this is just a text context of a story scene", R.drawable.storyimage1),
                         new Scene("Scene 1", "this is just a text context of a story scene", R.drawable.storyimage1),
-                },false, false, false)
+                }, false, false, false)
         );
         list_stories.add(
 
@@ -127,7 +125,7 @@ public class Data {
                         new Scene("Scene 1", "this is just a text context of the fifth story scene", R.drawable.storyimage2),
                         new Scene("Scene 1", "this is just a text context of a story scene", R.drawable.storyimage1),
                         new Scene("Scene 1", "this is just a text context of a story scene", R.drawable.storyimage1),
-                },false, false, false)
+                }, false, false, false)
         );
     }
 }

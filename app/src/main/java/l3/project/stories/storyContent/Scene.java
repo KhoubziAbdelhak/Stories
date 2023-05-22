@@ -8,9 +8,6 @@ public class Scene implements Serializable {
     int image;
     int voice;
 
-    public Scene() {
-    }
-
     public Scene(String scene_title, String context, int image) {
         this.scene_title = scene_title;
         this.context = context;
