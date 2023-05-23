@@ -1,11 +1,12 @@
-package l3.project.stories;
+package l3.project.stories.model;
 
 
 import java.util.ArrayList;
 import java.util.List;
 
-import l3.project.stories.storyContent.Scene;
-import l3.project.stories.storyContent.Story;
+import l3.project.stories.R;
+import l3.project.stories.model.Scene;
+import l3.project.stories.model.Story;
 
 public class Data {
 

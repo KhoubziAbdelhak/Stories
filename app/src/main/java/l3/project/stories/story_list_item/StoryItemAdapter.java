@@ -1,4 +1,4 @@
-package l3.project.stories.storyItem;
+package l3.project.stories.story_list_item;
 
 import android.content.Context;
 import android.content.Intent;
@@ -20,10 +20,10 @@ import com.google.gson.Gson;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import l3.project.stories.Data;
+import l3.project.stories.model.Data;
 import l3.project.stories.R;
-import l3.project.stories.storyContent.Story;
-import l3.project.stories.storyContent.StoryContent;
+import l3.project.stories.model.Story;
+import l3.project.stories.story_content.StoryContent;
 
 public class StoryItemAdapter extends RecyclerView.Adapter<StoryItemAdapter.ViewHolder> {
 

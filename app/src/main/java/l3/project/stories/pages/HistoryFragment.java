@@ -15,10 +15,10 @@ import android.view.ViewGroup;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import l3.project.stories.Data;
+import l3.project.stories.model.Data;
 import l3.project.stories.R;
-import l3.project.stories.storyContent.Story;
-import l3.project.stories.storyItem.StoryItemAdapter;
+import l3.project.stories.model.Story;
+import l3.project.stories.story_list_item.StoryItemAdapter;
 
 public class HistoryFragment extends Fragment {
 

@@ -13,10 +13,11 @@ import com.google.gson.Gson;
 import java.util.Arrays;
 
 import l3.project.stories.databinding.ActivityMainBinding;
+import l3.project.stories.model.Data;
 import l3.project.stories.pages.FavoriteFragment;
 import l3.project.stories.pages.HomeFragment;
 import l3.project.stories.pages.HistoryFragment;
-import l3.project.stories.storyContent.Story;
+import l3.project.stories.model.Story;
 
 public class MainActivity extends AppCompatActivity {
 

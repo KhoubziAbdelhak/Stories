@@ -1,6 +1,5 @@
 package l3.project.stories.pages;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,15 +12,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.gson.Gson;
-
 import java.util.List;
 
-import l3.project.stories.Data;
-import l3.project.stories.MainActivity;
+import l3.project.stories.model.Data;
 import l3.project.stories.R;
-import l3.project.stories.storyContent.Story;
-import l3.project.stories.storyItem.StoryItemAdapter;
+import l3.project.stories.model.Story;
+import l3.project.stories.story_list_item.StoryItemAdapter;
 
 public class HomeFragment extends Fragment {
 

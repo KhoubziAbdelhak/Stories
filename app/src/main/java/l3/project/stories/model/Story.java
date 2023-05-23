@@ -1,4 +1,4 @@
-package l3.project.stories.storyContent;
+package l3.project.stories.model;
 
 import java.io.Serializable;
 

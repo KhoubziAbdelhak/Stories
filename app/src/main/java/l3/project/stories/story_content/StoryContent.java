@@ -1,4 +1,4 @@
-package l3.project.stories.storyContent;
+package l3.project.stories.story_content;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
@@ -6,6 +6,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import android.os.Bundle;
 
 import l3.project.stories.R;
+import l3.project.stories.model.Story;
 
 public class StoryContent extends AppCompatActivity {
 

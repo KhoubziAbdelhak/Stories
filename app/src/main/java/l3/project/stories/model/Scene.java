@@ -1,12 +1,12 @@
-package l3.project.stories.storyContent;
+package l3.project.stories.model;
 
 import java.io.Serializable;
 
 public class Scene implements Serializable {
-    String scene_title;
-    String context;
-    int image;
-    int voice;
+    private String scene_title;
+    private String context;
+    private int image;
+    private int voice;
 
     public Scene(String scene_title, String context, int image) {
         this.scene_title = scene_title;

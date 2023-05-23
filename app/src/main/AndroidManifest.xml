@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".storyContent.StoryContent"
+            android:name=".story_content.StoryContent"
             android:exported="false"
             android:screenOrientation="portrait" />
     </application>

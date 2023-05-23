@@ -1,12 +1,10 @@
 package l3.project.stories.pages;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Lifecycle;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -14,17 +12,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.gson.Gson;
-
-import java.lang.reflect.Array;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import l3.project.stories.Data;
+import l3.project.stories.model.Data;
 import l3.project.stories.R;
-import l3.project.stories.storyContent.Story;
-import l3.project.stories.storyItem.StoryItemAdapter;
+import l3.project.stories.model.Story;
+import l3.project.stories.story_list_item.StoryItemAdapter;
 
 
 public class FavoriteFragment extends Fragment {

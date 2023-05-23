@@ -1,4 +1,4 @@
-package l3.project.stories.storyContent;
+package l3.project.stories.story_content;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

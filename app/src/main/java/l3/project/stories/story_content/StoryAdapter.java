@@ -1,4 +1,4 @@
-package l3.project.stories.storyContent;
+package l3.project.stories.story_content;
 
 import android.content.Context;
 import android.media.MediaPlayer;
@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import l3.project.stories.R;
+import l3.project.stories.model.Story;
 
 public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder> {
 
@@ -35,8 +36,8 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull StoryAdapter.ViewHolder holder, int position) {
-        holder.scene_image.setImageResource(story.getScenes()[position].image);
-        holder.scene_text.setText(story.getScenes()[position].context);
+        holder.scene_image.setImageResource(story.getScenes()[position].getImage());
+        holder.scene_text.setText(story.getScenes()[position].getContext());
 
         if (!story.hasVoice()) {
             holder.scene_buttons.setVisibility(View.GONE);
@@ -73,7 +74,7 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder> 
 
     public void play(int position) {
         if (player == null) {
-            player = MediaPlayer.create(context, story.getScenes()[position].voice);
+            player = MediaPlayer.create(context, story.getScenes()[position].getVoice());
             player.setOnCompletionListener(mp -> stopPlayer());
         }
         player.start();
