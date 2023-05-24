@@ -3,11 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="420dp"
-    android:layout_margin="10dp"
+    android:layout_height="416dp"
+    android:layout_margin="16dp"
     android:background="@drawable/item_border"
     android:gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="8dp">
 
 
     <TextView
@@ -16,11 +17,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/story_name_font"
-        android:shadowColor="@color/white"
-        android:shadowRadius="7"
+        android:shadowColor="@color/black"
+        android:shadowDx="2"
+        android:shadowDy="5"
+        android:shadowRadius="4"
         android:text="Story Title"
         android:textAlignment="center"
-        android:textColor="#000000"
+        android:textColor="@color/white"
         android:textSize="33sp"
         android:textStyle="bold" />
 
@@ -42,15 +45,8 @@
                 android:id="@+id/story_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:alpha="0.8"
                 android:scaleType="fitXY"
                 android:src="@drawable/storyimage1" />
-
-            <View
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:alpha="0.4"
-                android:background="@color/black" />
 
         </FrameLayout>
 
@@ -66,7 +62,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
                 android:layout_gravity="end"
-                android:layout_margin="13dp"
+                android:layout_margin="16dp"
                 android:background="@null"
                 android:clickable="true"
                 android:contentDescription="@string/favorite_fragment"
